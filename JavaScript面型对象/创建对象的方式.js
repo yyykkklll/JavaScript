@@ -9,3 +9,5 @@ const person = {
 
 console.log(person.name);
 person.hello();
+
+// 第二种方式
