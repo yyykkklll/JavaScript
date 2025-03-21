@@ -21,3 +21,5 @@ class cat extends animial {
 cat1 = new cat("小猫", "白色");
 cat1.eat();
 cat1.meow();
+
+// 原型链实现继承

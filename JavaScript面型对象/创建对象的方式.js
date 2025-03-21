@@ -68,3 +68,4 @@ class Student_05 {
 
 stu2 = new Student_05("科龙", 23, 99);
 stu2.sayHello();
+
