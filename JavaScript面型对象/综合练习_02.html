@@ -2,9 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>面向对象综合练习</title>
 </head>
 <body>
-$END$
+<script>
+  // Book 类
+  class Book {
+    constructor(title, author, price, isAvailable = true) {
+      this.title = title;
+      this.author = author;
+      this.price = price;
+      this.isAvailable = isAvailable;
+    }
+
+    getInfo() {
+      return `《${this.title}》 by ${this.author}, 价格: ${this.price} 元, 可借: ${this.isAvailable ? "是" : "否"}`;
+    }
+
+    toggleAvailability() {
+      this.isAvailable = !this.isAvailable; // 更简洁的切换写法
+    }
+  }
+
+  // Library 类
+  class Library {
+    constructor(name) {
+      this.name = name;
+      this.books = []; // 初始化为空数组
+    }
+
+    addBook(book) {
+      this.books.push(book);
+      console.log(`已添加书籍: ${book.title}`);
+    }
+
+    removeBook(title) {
+      const index = this.books.findIndex(book => book.title === title);
+      if (index !== -1) {
+        this.books.splice(index, 1);
+        console.log(`已移除书籍: ${title}`);
+      } else {
+        console.log(`未找到书籍: ${title}`);
+      }
+    }
+
+    findBook(title) {
+      const book = this.books.find(book => book.title === title);
+      return book || null; // 找到返回书籍，否则返回 null
+    }
+
+    listAvailableBooks() {
+      console.log(`${this.name} 现有可借书籍:`);
+      const availableBooks = this.books.filter(book => book.isAvailable);
+      if (availableBooks.length > 0) {
+        availableBooks.forEach(book => console.log(`- ${book.getInfo()}`));
+      } else {
+        console.log("暂无可用书籍");
+      }
+    }
+
+    calculateTotalValue() {
+      const total = this.books.reduce((sum, book) => sum + book.price, 0);
+      return `总价值: ${total} 元`;
+    }
+  }
+
+  // EBook 类（继承 Book）
+  class EBook extends Book {
+    constructor(title, author, price, isAvailable, fileSize) {
+      super(title, author, price, isAvailable);
+      this.fileSize = fileSize;
+    }
+
+    getInfo() {
+      return `《${this.title}》 by ${this.author}, 价格: ${this.price} 元, 文件大小: ${this.fileSize} MB, 可借: ${this.isAvailable ? "是" : "否"}`;
+    }
+  }
+
+  // 测试代码
+  const library = new Library("城市图书馆");
+
+  // 创建书籍实例
+  const book1 = new Book("JavaScript 入门", "张三", 50);
+  const book2 = new EBook("Node.js 进阶", "李四", 80, true, 2.5);
+  const book3 = new Book("Python 基础", "王五", 40);
+
+  // 添加书籍
+  library.addBook(book1);
+  library.addBook(book2);
+  library.addBook(book3);
+
+  // 测试功能
+  console.log(book1.getInfo());
+  console.log(book2.getInfo());
+
+  library.listAvailableBooks();
+  console.log(library.calculateTotalValue());
+
+  book1.toggleAvailability(); // 切换状态
+  library.removeBook("JavaScript 入门");
+
+  console.log("\n移除后:");
+  library.listAvailableBooks();
+
+  const foundBook = library.findBook("Node.js 进阶");
+  console.log(foundBook ? `找到书籍: ${foundBook.getInfo()}` : "未找到书籍");
+</script>
 </body>
 </html>

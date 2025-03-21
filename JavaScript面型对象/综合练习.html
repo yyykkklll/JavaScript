@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>面向对象综合练习</title>
 </head>
 <body>
-$END$
+<script>
+    class Book {
+        constructor(title, author, price, isAvailable) {
+            this.title = title;
+            this.author = author;
+            this.price = price;
+            this.isAvailable = isAvailable;
+        }
+
+        getInfo() {
+            console.log("《" + this.title + "》" + "by" + this.author, +",价格:" + this.price + ",可借:" + this.isAvailable);
+        }
+
+        toggleAvailability() {
+            this.isAvailable = this.isAvailable !== true;
+        }
+    }
+
+    class Library {
+        constructor(name, books) {
+            this.name = name;
+            this.books = books;
+        }
+
+        addBook(name) {
+        };
+
+        removeBook(title);
+
+        findBook(title);
+
+        listAvailableBooks();
+
+        calculateTotalValue() {
+
+        };
+    }
+
+    class Ebook extends Book {
+        constructor(title, author, price, isAvailable, fileSize) {
+            super(title, author, price, isAvailable);
+            this.fileSize = fileSize;
+        }
+
+        getInfo() {
+            console.log("《" + this.title + "》" + "by" + this.author, +",价格:" + this.price + ",文件大小:" + this.fileSize + " MB" + ",可借:" + this.isAvailable);
+        }
+    }
+</script>
 </body>
 </html>

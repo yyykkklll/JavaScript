@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>动态多态</title>
 </head>
 <body>
-$END$
+<script>
+    // 传入对象为animal对象
+    function makeAnimalSpeak(animal) {
+        animal.speak();
+    }
+
+    class Dog {
+        constructor(name) {
+            this.name = name;
+        }
+
+        speak() {
+            console.log(this.name + "汪汪汪汪汪汪");
+        }
+    }
+
+    class Cat {
+        constructor(name) {
+            this.name = name;
+        }
+
+        speak() {
+            console.log(this.name + "喵喵喵喵喵咪咪");
+        }
+    }
+
+    dog = new Dog("小黑");
+    cat = new Cat("小白");
+    makeAnimalSpeak(dog);
+    makeAnimalSpeak(cat);
+</script>
 </body>
 </html>

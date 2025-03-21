@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>多态练习</title>
 </head>
 <body>
-$END$
+<script>
+    class Animal {
+        // 构造器
+        constructor(name) {
+            this.name = name;
+        }
+
+        speak() {
+            console.log(this.name + "说话，，，");
+        }
+    }
+
+    class Dog extends Animal {
+        speak() {
+            console.log(this.name + "汪汪叫，，，")
+        }
+    }
+
+    class Cat extends Dog {
+        speak() {
+            console.log(this.name + "吱吱叫，，，")
+        }
+    }
+
+    const animals = [
+        new Animal("未知生物"),
+        new Dog("旺财"),
+        new Cat("喵喵")
+    ]
+    animals.forEach(animal => animal.speak());
+</script>
 </body>
 </html>
