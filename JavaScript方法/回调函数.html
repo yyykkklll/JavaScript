@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fetchData(callback) {
+            setTimeout(() => {
+                const data = "Some data";
+                callback(data); // 1 秒后调用回调
+            }, 1000);
+        }
+
+        fetchData((result) => {
+            console.log(result); // 输出: "Some data"
+        });
+    </script>
+</body>
+
+</html>
