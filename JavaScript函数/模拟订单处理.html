@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回调函数</title>
+</head>
+
+<body>
+    <script>
+        function processOrder(itemName, callback) {
+            console.log(`Processing order for ${itemName}`);
+            callback();
+        };
+
+        function completeOrder() {
+            console.log("订单已完成！");
+        };
+
+        processOrder("手机", completeOrder);
+        processOrder("电脑", completeOrder);
+    </script>
+</body>
+
+</html>

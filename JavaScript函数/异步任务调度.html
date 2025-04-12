@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异步任务调度</title>
+</head>
+
+<body>
+<script>
+    const TaskArray = ["任务1", "任务2", "任务3", "任务4", "任务5"];
+
+    function runTasks(taskarray, callback) {
+        function executeTask(index) {
+            if (index >= taskarray.length) {
+                callback();
+                return;
+            }
+            setTimeout(function () {
+                console.log("正在执行task" + index);
+                executeTask(index + 1);
+            }, 1000);
+        }
+
+        executeTask(0);
+    }
+
+    runTasks(TaskArray, function () {
+        console.log("任务已处理完毕！");
+    })
+</script>
+</body>
+
+</html>

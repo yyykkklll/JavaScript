@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务优先级调度器</title>
+</head>
+<body>
+<script>
+    /**练习题 2：任务优先级调度器
+     题目描述：
+     编写一个函数 createTaskScheduler，它创建一个任务调度器，用于按优先级执行任务。函数返回一个对象，
+     包含两个方法：
+     addTask(taskName, priority)：添加一个任务（taskName 是字符串，priority 是数字，优先级越高越先执行）。
+     runTasks()：按优先级从高到低异步执行所有任务（使用 setTimeout 模拟 1 秒延迟），每次打印“执行任务：[taskName]（优先级：[priority]）”。
+     要求：
+     使用闭包保存任务列表，外部无法直接访问或修改。
+     runTasks 按优先级降序（大的优先级先执行）执行任务，每隔 1 秒执行一个任务。
+     所有任务执行完后，打印“所有任务执行完毕！”。
+     测试你的代码，至少添加 3 个任务，优先级不同。
+     * */
+    function createTaskScheduler() {
+        var tasks = []; // 闭包保存任务列表
+
+        function addTask(taskName, priority) {
+            tasks.push({name: taskName, priority: priority});
+        }
+
+        function runTasks() {
+            // 按优先级降序排序
+            tasks.sort(function (a, b) {
+                return b.priority - a.priority;
+            });
+
+            function executeTask(index) {
+                if (index >= tasks.length) {
+                    console.log("所有任务执行完毕！");
+                    return;
+                }
+
+                setTimeout(function () {
+                    console.log("执行任务：" + tasks[index].name + "（优先级：" + tasks[index].priority + "）");
+                    executeTask(index + 1);
+                }, 1000);
+            }
+
+            executeTask(0);
+        }
+
+        return {
+            addTask: addTask,
+            runTasks: runTasks
+        };
+    }
+
+    // 测试代码
+    var scheduler = createTaskScheduler();
+    scheduler.addTask("发送邮件", 2);
+    scheduler.addTask("清理缓存", 1);
+    scheduler.addTask("更新数据库", 3);
+    scheduler.runTasks();
+</script>
+</body>
+</html>

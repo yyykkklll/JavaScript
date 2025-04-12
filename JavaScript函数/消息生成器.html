@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息生成器</title>
+</head>
+<body>
+<script>
+    /**练习题 1：消息生成器
+     题目描述：
+     编写一个函数 createMessageGenerator，它接受一个参数 prefix（字符串，表示消息前缀）。该函数返回
+     一个新函数，这个新函数可以接受一个 content（字符串，表示消息内容），
+     并打印带有前缀的消息（格式为：[prefix]: content）。
+     要求：
+     返回的函数必须通过闭包记住 prefix 的值。
+     外部代码无法直接访问或修改 prefix。
+     测试你的代码，创建至少两个消息生成器，分别使用不同的前缀，并调用它们生成不同内容的消息。
+     （加分项）尝试让返回的函数在 1 秒后异步打印消息（使用 setTimeout）。
+     * */
+    function createMessageGenerator(prefix) {
+        function createMessage(content) {
+            console.log("[" + prefix + "]" + content);
+        }
+
+        return createMessage;
+    }
+
+    var warn = createMessageGenerator("警告");
+    var info = createMessageGenerator("信息");
+    warn("系统错误"); // 输出：[警告]: 系统错误
+    info("登录成功"); // 输出：[信息]: 登录成功
+</script>
+</body>
+</html>
