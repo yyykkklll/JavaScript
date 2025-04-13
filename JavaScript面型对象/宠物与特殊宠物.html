@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习题 2：宠物与特殊宠物</title>
+</head>
+<body>
+<script>
+    /**练习题 2：宠物与特殊宠物
+     题目描述：
+     编写两个类：Pet（基础宠物类）和 SuperPet（继承自 Pet），用于模拟宠物行为。
+     Pet 类：
+     属性：
+     name（宠物名字，字符串）
+     energy（能量值，数字，初始为 100）
+     方法：
+     play：打印“[name] 在玩耍！”并减少 10 点能量，打印当前能量（格式：“当前能量: [energy]”）。
+     rest：增加 20 点能量，打印“[name] 在休息！”和当前能量，但能量不能超过 100。
+     SuperPet 类：
+     继承 Pet 类。
+     新属性：
+     skill（特殊技能，字符串）
+     重写 play 方法：除了父类的行为外，额外打印“[name] 使用了 [skill]！”。
+     * */
+    class Pet {
+        constructor(name, energy) {
+            this.name = name;
+            this.energy = energy;
+        }
+
+        play() {
+            console.log("[" + this.name + "] 在玩耍!");
+            this.energy = this.energy - 10;
+            console.log("当前能量: [" + this.energy + "]");
+        }
+
+        rest() {
+            // 修复1：增加20点能量（原为10）
+            this.energy = this.energy + 20;
+            // 修复2：确保能量不超过100
+            if (this.energy > 100) {
+                this.energy = 100;
+            }
+            console.log("[" + this.name + "] 在休息！");
+            // 修复3：统一输出格式为“当前能量: [energy]”
+            console.log("当前能量: [" + this.energy + "]");
+        }
+    }
+
+    class SuperPet extends Pet {
+        constructor(name, energy, skill) {
+            super(name, energy);
+            this.skill = skill;
+        }
+
+        play() {
+            super.play();
+            console.log("[" + this.name + "] 使用了 " + this.skill);
+        }
+    }
+
+    // 测试用例
+    var dog = new Pet("旺财", 100);
+    dog.play(); // 输出：[旺财] 在玩耍! 当前能量: [90]
+    dog.rest(); // 输出：[旺财] 在休息！ 当前能量: [100]
+
+    var superCat = new SuperPet("咪咪", 100, "飞跃");
+    superCat.play(); // 输出：[咪咪] 在玩耍! 当前能量: [90] [咪咪] 使用了 飞跃！
+    superCat.rest(); // 输出：[咪咪] 在休息！ 当前能量: [100]
+</script>
+</body>
+</html>

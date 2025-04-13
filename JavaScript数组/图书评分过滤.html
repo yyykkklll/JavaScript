@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书评分过滤</title>
+</head>
+<body>
+<script>
+    /**练习题 2：图书评分过滤
+     题目描述：
+     你有一个图书评分数组（每个元素是对象，包含 title 和 rating 属性）。编写一个函数 filterBooks，接受评分数组和一个过滤类型（字符串），
+     根据类型返回处理后的结果。
+     支持以下类型：
+     "highRated"：筛选评分大于等于 4 的图书（用 filter）。
+     "findFirstGood"：查找第一个评分大于 3 的图书（用 find）。
+     "hasExcellent"：检查是否有评分等于 5 的图书（用 some）。
+     "mapTitles"：提取所有图书标题组成新数组（用 map）。
+     要求：
+     使用至少 filter、find、some 和 map 方法。
+     如果数组为空，highRated 和 mapTitles 返回空数组，findFirstGood 返回 null，
+     hasExcellent 返回 false。
+     测试函数，创建包含至少 3 本书的数组，调用不同过滤类型。
+     （加分项）结合你的 OOP 知识，用 Book 类创建图书对象。
+     * */
+    class Book {
+        constructor(title, rating) {
+            if (typeof rating !== "number" || rating < 0) {
+                console.log("警告：评分必须是非负数，设置为 0");
+                rating = 0;
+            }
+            this.title = title;
+            this.rating = rating;
+        }
+    }
+
+    function filterBooks(books, task_name, callback) {
+        setTimeout(function () {
+            switch (task_name) {
+                case "highRated":
+                    callback(books.filter(function (book) {
+                        return book && typeof book.rating === "number" && book.rating >= 4;
+                    }));
+                    break;
+                case "findFirstGood":
+                    callback(books.length === 0 ? null :
+                        books.find(function (book) {
+                            return book && typeof book.rating === "number" && book.rating > 3;
+                        }) || null);
+                    break;
+                case "hasExcellent":
+                    callback(books.some(function (book) {
+                        return book && typeof book.rating === "number" && book.rating === 5;
+                    }));
+                    break;
+                case "mapTitles":
+                    callback(books.map(function (book) {
+                        return book && typeof book.title === "string" ? book.title : "";
+                    }));
+                    break;
+            }
+        }, 1000);
+    }
+
+    // 测试用例
+    var book1 = new Book("JS 入门", 4);
+    var book2 = new Book("HTML 基础", 3);
+    var book3 = new Book("CSS 进阶", 5);
+    var books = [book1, book2, book3];
+
+    filterBooks(books, "highRated", function (result) {
+        console.log(result); // 1 秒后输出：[{ title: "JS 入门", rating: 4 }, { title: "CSS 进阶", rating: 5 }]
+    });
+    filterBooks(books, "findFirstGood", function (result) {
+        console.log(result); // 1 秒后输出：{ title: "JS 入门", rating: 4 }
+    });
+    filterBooks([], "hasExcellent", function (result) {
+        console.log(result); // 1 秒后输出：false
+    });
+</script>
+</body>
+</html>

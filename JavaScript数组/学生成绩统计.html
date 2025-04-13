@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩统计</title>
+</head>
+<body>
+<script>
+    /**练习题 3：学生成绩统计
+     题目描述：
+     你有一个学生成绩数组（数字表示分数）。编写一个函数 analyzeScores，接受成绩数组和一个分析类型（字符串），
+     根据类型返回统计结果。支持以下类型：
+     "total"：计算所有成绩的总和（用 reduce）。
+     "allPass"：检查是否所有成绩都大于等于 60（用 every）。
+     "addScore"：在数组开头添加一个新成绩（用 unshift）。
+     "checkScore"：检查是否包含某个特定分数（用 includes）。
+     要求：
+     使用至少 reduce、every、unshift 和 includes 方法。
+     如果数组为空，total 返回 0，allPass 返回 true（空数组视为全通过），checkScore 返回 false。
+     测试函数，创建包含至少 4 个分数的数组，尝试不同分析类型。
+     （加分项）用 setTimeout 模拟异步统计，延迟 1 秒返回结果。
+     * */
+    function analyzeScores(scores, task_name, value, callback) {
+        switch (task_name) {
+            case "total":
+                setTimeout(function () {
+                    if (scores.length === 0) {
+                        callback(0);
+                    } else {
+                        callback(scores.reduce(function (acc, cur) {
+                            return acc + cur;
+                        }, 0));
+                    }
+                }, 1000);
+                break;
+            case "allPass":
+                setTimeout(function () {
+                    if (scores.length === 0) {
+                        callback(true);
+                    } else {
+                        callback(scores.every(function (score) {
+                            return score >= 60;
+                        }));
+                    }
+                }, 1000);
+                break;
+            case "addScore":
+                setTimeout(function () {
+                    scores.unshift(value);
+                    callback(scores);
+                }, 1000);
+                break;
+            case "checkScore":
+                setTimeout(function () {
+                    if (scores.length === 0) {
+                        callback(false);
+                    } else {
+                        callback(scores.includes(value));
+                    }
+                }, 1000);
+                break;
+        }
+    }
+
+    // 测试用例
+    var scores = [85, 90, 60, 75];
+    analyzeScores(scores, "total", null, function (result) {
+        console.log(result); // 1 秒后输出：310
+    });
+    analyzeScores(scores, "allPass", null, function (result) {
+        console.log(result); // 1 秒后输出：true
+    });
+    analyzeScores(scores, "addScore", 95, function (result) {
+        console.log(result); // 1 秒后输出：[95, 85, 90, 60, 75]
+    });
+    analyzeScores(scores, "checkScore", 90, function (result) {
+        console.log(result); // 1 秒后输出：true
+    });
+</script>
+</body>
+</html>

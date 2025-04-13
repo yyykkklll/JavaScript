@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>图书管理系统</title>
+</head>
+
+<body>
+<script>
+    /**
+     * 练习题 1：图书管理系统
+     设计一个简单的图书管理系统，使用面向对象的方式实现以下功能：
+     创建一个 Book 类，包含以下属性：
+     title（书名，字符串）
+     author（作者，字符串）
+     isbn（ISBN 编号，字符串，私有字段）
+     isAvailable（是否可借，布尔值，默认为 true）
+     在 Book 类中实现以下方法：
+     getInfo()：返回图书的详细信息（如“《书名》 by 作者, ISBN: xxx”）。
+     borrow()：如果图书可借，设置为不可借并返回 true；否则返回 false。
+     returnBook()：将图书设置为可借状态。
+     创建一个 Library 类，包含以下属性：
+     name（图书馆名称，字符串）
+     books（图书数组，存储 Book 实例）
+     在 Library 类中实现以下方法：
+     addBook(book)：添加一本书到图书数组。
+     findBookByTitle(title)：根据书名查找图书，返回图书对象或 null。
+     borrowBook(isbn)：根据 ISBN 借阅图书，调用对应图书的 borrow() 方法。
+     测试你的代码：
+     创建一个图书馆，添加几本书。
+     尝试借阅一本书，查看图书状态变化。
+     尝试查找一本书并输出其信息。
+     提示：
+     使用私有字段保护 ISBN。
+     考虑如何处理查找不到图书的情况。
+     */
+    class Book {
+        constructor(title, author, isbn, isAvailable) {
+            this.title = title;
+            this.author = author;
+            this.isbn = isbn;
+            this.isAvailable = true;
+        }
+
+        getInfo() {
+            return "书名《" + this.title + "》 by" + this.author + "INBN: " + this.isbn;
+        }
+
+        borrow() {
+            if (this.isAvailable) {
+                this.isAvailable = false;
+                return true;
+            }
+            return false;
+        }
+
+        returnBook() {
+            this.isAvailable = true;
+        }
+    }
+
+    class Library {
+        constructor(name, books) {
+            this.name = name;
+            this.books = [];
+        }
+
+        addBook(book) {
+            this.books.push(book);
+        }
+
+        findBookByTitle(title) {
+            return this.books.find(book => book.title === title);
+        }
+
+        borrowBook(isbn) {
+            const to_book = this.books.find(book => book.isbn === isbn);
+            return to_book.borrow();
+        }
+    }
+
+    const library = new Library("社区图书馆");
+    const book = new Book("深入理解 ES6", "Nicholas C. Zakas", "978-1593277574");
+    library.addBook(book);
+
+    // 查找图书
+    const foundBook = library.findBookByTitle("深入理解 ES6");
+    console.log(foundBook ? foundBook.getInfo() : "未找到"); // 期望输出：深入理解 ES6 by Nicholas C. Zakas, ISBN: 978-1593277574
+
+    // 借阅后归还
+    library.borrowBook("978-1593277574");
+    console.log(book.isAvailable); // 期望输出：false
+    book.returnBook();
+    console.log(book.isAvailable); // 期望输出：true
+</script>
+</body>
+</html>

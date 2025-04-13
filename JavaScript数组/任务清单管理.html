@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务清单管理</title>
+</head>
+<body>
+<script>
+    /**练习题 1：任务清单管理
+     题目描述：
+     你正在开发一个简单的任务清单应用。编写一个函数 manageTasks，接受一个任务数组（字符串表示任务）和一个操作类型（字符串），
+     根据操作类型对数组进行处理，并返回结果。支持以下操作：
+     "add"：在数组末尾添加新任务（用 push）。
+     "removeLast"：移除最后一个任务并返回它（用 pop）。
+     "getSummary"：返回所有任务拼接成的字符串，格式为“任务：任务1, 任务2, ...”（用 join）。
+     "sortTasks"：按字母顺序排序任务并返回数组（用 sort）。
+     要求：
+     使用至少 push、pop、join 和 sort 方法。
+     如果数组为空，removeLast 返回 "无任务"，getSummary 返回 "暂无任务"。
+     测试函数，尝试不同操作，确保正确处理任务。
+     （加分项）用 setTimeout 延迟 1 秒打印操作结果。
+     * */
+    function manageTasks(tasks, task_name, newTask, callback) {
+        if (!Array.isArray(tasks)) {
+            setTimeout(function () {
+                callback(null, "无效的任务列表");
+            }, 1000);
+            return;
+        }
+
+        setTimeout(function () {
+            switch (task_name) {
+                case "add":
+                    if (typeof newTask !== "string" || newTask === "") {
+                        callback(tasks, "无效的任务");
+                        return;
+                    }
+                    tasks.push(newTask);
+                    callback(tasks);
+                    break;
+                case "removeLast":
+                    if (tasks.length === 0) {
+                        callback("无任务");
+                        return;
+                    }
+                    callback(tasks.pop());
+                    break;
+                case "getSummary":
+                    if (tasks.length === 0) {
+                        callback("暂无任务");
+                        return;
+                    }
+                    callback("任务：" + tasks.join(", "));
+                    break;
+                case "sortTasks":
+                    callback(tasks.slice().sort());
+                    break;
+                default:
+                    callback(null, "未知操作");
+            }
+        }, 1000);
+    }
+
+    // 测试用例
+    var tasks = ["写代码", "测试"];
+    manageTasks(tasks, "add", "休息", function (result) {
+        console.log(result); // 1 秒后输出：["写代码", "测试", "休息"]
+    });
+    manageTasks(tasks, "getSummary", null, function (result) {
+        console.log(result); // 1 秒后输出：任务：写代码, 测试, 休息
+    });
+    manageTasks([], "removeLast", null, function (result) {
+        console.log(result); // 1 秒后输出：无任务
+    });
+</script>
+</body>
+</html>
