@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>闭包</title>
 </head>
 
 <body>
-<script>
-    for (var i = 1; i <= 3; i++) {
-        setTimeout(function () {
-            console.log("计数：" + i);
-        }, 1000);
-    }
-</script>
+    <script>
+        function Person(name) {
+            let age = 0; // 私有变量
+            return {
+                getname: function () {
+                    return name;
+                },
+                getage: function () {
+                    return age;
+                },
+                setage: function (newage) {
+                    if (newage > age) {
+                        age = newage;
+                    } else {
+                        console.log("年龄不能小于等于当前年龄");
+                    }
+                }
+            }
+        }
+        const person = Person("张三");
+        console.log(person.getname()); // 张三
+        console.log(person.getage()); // 0
+        person.setage(20);
+        console.log(person.getage()); // 20
+        person.setage(10); // 年龄不能小于等于当前年龄
+        console.log(person.getage()); // 20
+    </script>
 </body>
+
 </html>

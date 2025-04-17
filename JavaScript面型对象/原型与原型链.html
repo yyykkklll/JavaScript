@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型与原型链</title>
+</head>
+
+<body>
+    <script>
+        // 定义一个构造函数
+        function Animal(name) {
+            this.name = name;
+        }
+
+        // 为构造函数的 prototype 添加方法
+        Animal.prototype.sayName = function () {
+            console.log(`My name is ${this.name}`);
+        };
+
+        // 创建一个 Dog 类，继承自 Animal
+        function Dog(name, breed) {
+            Animal.call(this, name); // 调用父类构造函数
+            this.breed = breed;
+        }
+
+        // 设置 Dog 的 prototype 为 Animal 的实例
+        Dog.prototype = Object.create(Animal.prototype);
+
+        // 为 Dog 添加新方法
+        Dog.prototype.sayBreed = function () {
+            console.log(`I am a ${this.breed}`);
+        };
+
+        // 创建 Dog 的实例
+        const myDog = new Dog("Buddy", "Golden Retriever");
+
+        // 调用继承的方法
+        myDog.sayName(); // 输出 "My name is Buddy"
+
+        // 调用自身的方法
+        myDog.sayBreed(); // 输出 "I am a Golden Retriever"
+
+        // 检查原型链
+        console.log(myDog.__proto__ === Dog.prototype); // true
+        console.log(Dog.prototype.__proto__ === Animal.prototype); // true
+        console.log(Animal.prototype.__proto__ === Object.prototype); // true
+        console.log(Object.prototype.__proto__); // null
+    </script>
+</body>
+
+</html>

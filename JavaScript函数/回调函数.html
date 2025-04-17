@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        function fetchData(callback) {
-            setTimeout(() => {
-                const data = "Some data";
-                callback(data); // 1 秒后调用回调
-            }, 10000);
-        }
+      function sayhello(callback) {
+        console.log("hello");
+        callback()
+      }
 
-        fetchData((result) => {
-            console.log(result); // 输出: "Some data"
-        });
+      function callback() {
+        console.log("callback------");
+      }
+
+      sayhello(callback)
     </script>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数Animal
+        function Animal(name) {
+            this.name = name;
+        }
+        Animal.prototype.sayName = function () {
+            console.log(`My name is ${this.name}`);
+        };
+        // Dog类
+        function Dog(name, age) {
+            Animal.call(this, name);
+            this.age = age;
+        }
+        Dog.prototype = Object.create(Animal.prototype);
+        Dog.prototype.sayAge = function () {
+            console.log(`My age is ${this.age}`);
+        };
+        // 创建Dog的实例
+        const myDog = new Dog("Buddy", 3);
+        myDog.sayName(); // 输出 "My name is Buddy"
+        myDog.sayAge(); // 输出 "My age is 3"
+        console.log(myDog.__proto__ === Dog.prototype); // true
+        console.log(Dog.prototype.__proto__ === Animal.prototype); // true
+        console.log(Animal.prototype.__proto__ === Object.prototype); // true
+        console.log(Object.prototype.__proto__); // null
+    </script>
+</body>
+
+</html>
