@@ -76,23 +76,23 @@
 
         borrowBook(isbn) {
             const to_book = this.books.find(book => book.isbn === isbn);
+            if (typeof to_book === "undefined") {
+                return false;
+            }
             return to_book.borrow();
         }
     }
 
-    const library = new Library("社区图书馆");
-    const book = new Book("深入理解 ES6", "Nicholas C. Zakas", "978-1593277574");
+    const library = new Library("大学图书馆");
+    const book = new Book("JavaScript 权威指南", "David Flanagan", "978-1491952023");
     library.addBook(book);
 
-    // 查找图书
-    const foundBook = library.findBookByTitle("深入理解 ES6");
-    console.log(foundBook ? foundBook.getInfo() : "未找到"); // 期望输出：深入理解 ES6 by Nicholas C. Zakas, ISBN: 978-1593277574
+    // 尝试借阅不存在的 ISBN
+    console.log(library.borrowBook("000-0000000000")); // 期望输出：false 或 undefined
 
-    // 借阅后归还
-    library.borrowBook("978-1593277574");
-    console.log(book.isAvailable); // 期望输出：false
-    book.returnBook();
-    console.log(book.isAvailable); // 期望输出：true
+    // 尝试查找不存在的书名
+    const foundBook = library.findBookByTitle("不存在的书");
+    console.log(foundBook ? foundBook.getInfo() : "未找到"); // 期望输出：未找到
 </script>
 </body>
 </html>
