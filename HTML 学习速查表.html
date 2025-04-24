@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 学习速查表</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+    .container {
+      width: 90%;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #ddd;
+    }
+    code {
+      background-color: #f9f9f9;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>HTML 学习速查表</h1>
+    <p>本表格总结了常见 HTML 元素及其基本示例，帮助快速学习与查阅。</p>
+    
+    <h2>布局与结构元素</h2>
+    <table>
+      <tr>
+        <th>元素</th>
+        <th>描述</th>
+        <th>示例</th>
+      </tr>
+      <tr>
+        <td><code>&lt;div&gt;</code></td>
+        <td>通用容器</td>
+        <td><code>&lt;div&gt;这是一个容器&lt;/div&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;section&gt;</code></td>
+        <td>语义化内容区域</td>
+        <td><code>&lt;section&gt;&lt;h2&gt;新闻&lt;/h2&gt;&lt;/section&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;header&gt;</code></td>
+        <td>页头</td>
+        <td><code>&lt;header&gt;网站标题&lt;/header&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;footer&gt;</code></td>
+        <td>页尾</td>
+        <td><code>&lt;footer&gt;版权信息&lt;/footer&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;main&gt;</code></td>
+        <td>页面主要内容</td>
+        <td><code>&lt;main&gt;&lt;h1&gt;文章正文&lt;/h1&gt;&lt;/main&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;article&gt;</code></td>
+        <td>独立内容块</td>
+        <td><code>&lt;article&gt;&lt;h2&gt;博客标题&lt;/h2&gt;&lt;/article&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;nav&gt;</code></td>
+        <td>导航链接区域</td>
+        <td><code>&lt;nav&gt;&lt;a href=&quot;/&quot;&gt;首页&lt;/a&gt;&lt;/nav&gt;</code></td>
+      </tr>
+    </table>
+
+    <h2>文本相关元素</h2>
+    <table>
+      <tr>
+        <th>元素</th>
+        <th>描述</th>
+        <th>示例</th>
+      </tr>
+      <tr>
+        <td><code>&lt;h1&gt; ~ &lt;h6&gt;</code></td>
+        <td>标题（h1 最大）</td>
+        <td><code>&lt;h1&gt;一级标题&lt;/h1&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;p&gt;</code></td>
+        <td>段落</td>
+        <td><code>&lt;p&gt;这是一个段落&lt;/p&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;span&gt;</code></td>
+        <td>行内文本容器</td>
+        <td><code>&lt;span style=&quot;color:red&quot;&gt;红色文字&lt;/span&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;strong&gt;</code></td>
+        <td>强调（加粗）</td>
+        <td><code>&lt;strong&gt;加粗文本&lt;/strong&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;em&gt;</code></td>
+        <td>强调（斜体）</td>
+        <td><code>&lt;em&gt;斜体文本&lt;/em&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;br&gt;</code></td>
+        <td>换行</td>
+        <td><code>一行&lt;br&gt;换行了</code></td>
+      </tr>
+    </table>
+
+    <h2>链接与媒体</h2>
+    <table>
+      <tr>
+        <th>元素</th>
+        <th>描述</th>
+        <th>示例</th>
+      </tr>
+      <tr>
+        <td><code>&lt;a&gt;</code></td>
+        <td>超链接</td>
+        <td><code>&lt;a href=&quot;https://example.com&quot;&gt;访问网站&lt;/a&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;img&gt;</code></td>
+        <td>图片</td>
+        <td><code>&lt;img src=&quot;image.jpg&quot; alt=&quot;描述文字&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;video&gt;</code></td>
+        <td>视频播放</td>
+        <td><code>&lt;video src=&quot;video.mp4&quot; controls&gt;&lt;/video&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;audio&gt;</code></td>
+        <td>音频播放</td>
+        <td><code>&lt;audio src=&quot;audio.mp3&quot; controls&gt;&lt;/audio&gt;</code></td>
+      </tr>
+    </table>
+
+    <h2>表格元素</h2>
+    <table>
+      <tr>
+        <th>元素</th>
+        <th>描述</th>
+        <th>示例</th>
+      </tr>
+      <tr>
+        <td><code>&lt;table&gt;</code></td>
+        <td>表格容器</td>
+        <td><code>&lt;table&gt;&lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;tr&gt;</code></td>
+        <td>表格行</td>
+        <td><code>&lt;tr&gt;&lt;td&gt;张三&lt;/td&gt;&lt;/tr&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;td&gt;</code></td>
+        <td>表格数据</td>
+        <td><code>&lt;td&gt;30&lt;/td&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;th&gt;</code></td>
+        <td>表格标题</td>
+        <td><code>&lt;th&gt;姓名&lt;/th&gt;</code></td>
+      </tr>
+    </table>
+
+    <h2>表单控件元素</h2>
+    <table>
+      <tr>
+        <th>元素</th>
+        <th>描述</th>
+        <th>示例</th>
+      </tr>
+      <tr>
+        <td><code>&lt;form&gt;</code></td>
+        <td>表单容器</td>
+        <td><code>&lt;form action=&quot;/submit&quot; method=&quot;post&quot;&gt;&lt;/form&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;input&gt;</code></td>
+        <td>文本输入、密码、单选、复选等</td>
+        <td><code>&lt;input type=&quot;text&quot; placeholder=&quot;用户名&quot;&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;textarea&gt;</code></td>
+        <td>多行文本输入</td>
+        <td><code>&lt;textarea&gt;输入内容&lt;/textarea&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;select&gt;</code></td>
+        <td>下拉框</td>
+        <td><code>&lt;select&gt;&lt;option&gt;选项一&lt;/option&gt;&lt;/select&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;button&gt;</code></td>
+        <td>按钮</td>
+        <td><code>&lt;button&gt;提交&lt;/button&gt;</code></td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+</html>

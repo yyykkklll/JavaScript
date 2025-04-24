@@ -1,0 +1,12 @@
+.div1 {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  transition: all 3s ease-out;
+}
+
+.div1:hover {
+  /* translate属性的正确语法是不需要括号的 */
+  /* transform: translate(50px, 50px); */
+  transform: rotateX(20deg);
+}
