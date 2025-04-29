@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 先放置DOM元素 -->
+    <div id="box">box节点</div>
+    
+    <!-- 后放置script标签,确保DOM元素已加载 -->
+    <script>
+      const box_id = document.getElementById("box");
+      console.log(box_id);
+    </script>
+  </body>
+</html>

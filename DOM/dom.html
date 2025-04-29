@@ -9,10 +9,14 @@
 
 <body>
     <script>
-        window.setTimeout(() => {
-            console.log("5秒已过去！")
-        }, 5000)
+        console.log(window.history)
+        console.log(window.navigator)
+        console.log(window.navigator.userAgent)
+        console.log(window.navigator.appName)
+        console.log(window.navigator.plugins)
     </script>
+    <button onclick="locationReplace()">bilibili</button>
+    <button onclick="locationReload()">reload</button>
 </body>
 
 </html>
