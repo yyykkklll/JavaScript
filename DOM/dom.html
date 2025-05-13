@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript DOM</title>
-  </head>
-  <script>
-    function get() {
-      var divByname = document.getElementsByName("div1");
-      var divByclass = document.getElementsByClassName("div2");
-      var divBytag = document.getElementsByTagName("div");
-      return (
-        divByname[0].innerHTML +
-        "<br>" +
-        divByclass[0].innerHTML +
-        "<br>" +
-        divBytag[0].innerHTML
-      );
-    }
-  </script>
 
-  <body>
-    <div name="div1" class="div2">div 文字</div>
-    get();
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript DOM</title>
+</head>
+
+<body>
+  <div id="box"></div>
+  <button id="btn">单击</button>
+  <!-- 将 script 标签移到 body 末尾，确保元素已加载 -->
+  <script type="text/javascript">
+    var btn = document.getElementById("btn");
+    var div = document.getElementById("box");
+    btn.onclick = function () {
+      div.innerHTML = "<h1>杰瑞教育</h1>";
+      alert(div.innerHTML);
+    };
+  </script>
+</body>
+
 </html>
