@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        function greet(name, callback) {
+            console.log("Hello " + name);
+            callback();
+        }
+        function bye() {
+            console.log("Goodbye!");
+        }
+        greet("Alice", bye);
+    </script> -->
+    <script>
+        function outter(){
+            function inner() {
+                count = 0;
+                count++;
+                console.log("Count is: " + count);
+            }
+            return inner;
+        }
+        var counter = outter();
+        counter(); // Count is: 1   
+        counter(); // Count is: 2
+        counter(); // Count is: 3
+    </script>
+</body>
+
+</html>

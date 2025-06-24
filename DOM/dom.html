@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JavaScript DOM</title>
 </head>
+<<<<<<< HEAD
 
 <body>
   <div id="box"></div>
@@ -19,6 +20,26 @@
       alert(div.innerHTML);
     };
   </script>
+=======
+<script>
+  function get() {
+    var divByname = document.getElementsByName("div1");
+    var divByclass = document.getElementsByClassName("div2");
+    var divBytag = document.getElementsByTagName("div");
+    return (
+      divByname[0].innerHTML +
+      "<br>" +
+      divByclass[0].innerHTML +
+      "<br>" +
+      divBytag[0].innerHTML
+    );
+  }
+</script>
+
+<body>
+  <div name="div1" class="div2">div 文字</div>
+  get();
+>>>>>>> f12ecd7 (2025-6-24)
 </body>
 
 </html>
