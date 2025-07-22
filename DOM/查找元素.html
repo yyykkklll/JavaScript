@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="Box">Box1</div>
+    <div class="Box">Box2</div>
+    <div class="Box">Box3</div>
+    <script>
+        // const div = document.getElementById("myDiv");
+        // console.log(div.textContent);
+        // const div = document.getElementsByTagName("div");
+        // console.log(div[0].textContent);
+        // console.log(div[1].textContent);
+
+        const box = document.querySelector(".Box");
+        console.log(box.textContent);
+
+        const box2 = document.querySelectorAll(".Box");
+        console.log(box2[0].textContent);
+        console.log(box2[1].textContent);
+    </script>
+</body>
+
+</html>
