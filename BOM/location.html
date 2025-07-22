@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("当前窗口的URL地址：" + location.href);
+        // location.reload();
+        setTimeout(() => {
+            location.assign("https://www.baidu.com"); // 跳转页面
+        }, 2000);
+        console.log("页面已经跳转！");
+    </script>
+</body>
+
+</html>

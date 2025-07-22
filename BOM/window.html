@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const str = window.prompt("请输入用户名和密码:");
+        // console.log(str);
+
+        // const res = window.confirm("是否确认删除？")
+        // if (res) {
+        //     console.log("用户点击了确认");
+        // } else {
+        //     console.log("用户点击了取消");
+        // }
+
+        // const id = function sayHello(name) {
+        //     console.log("hello " + name);
+        // }
+
+        // setTimeout(sayHello, 2000, "kelong");
+        function showTime() {
+            console.log("当前时间:" + new Date().toLocaleDateString());
+            console.log("-------------------------");
+        }
+
+        const timeId = setInterval(showTime, 1000);
+        setTimeout(() => { clearInterval(timeId); console.log("定时器已清除"); }, 10000)
+    </script>
+
+</body>
+
+</html>

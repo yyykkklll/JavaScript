@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("当前页面的URL：" + location.href);
+        setTimeout(() => {
+            console.log("准备跳转页面...");
+            location.href = "https://www.baidu.com";  // 正确写法：对href属性赋值
+            console.log("页面已经跳转！");  // 这行实际上不会执行，因为页面已跳转
+        }, 3000);
+    </script>
+</body>
+</html>
