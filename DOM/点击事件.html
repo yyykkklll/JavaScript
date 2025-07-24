@@ -1,0 +1,10 @@
+const btn = document.createElement("button")
+btn.textContent = "Click me!"
+document.body.appendChild(btn);
+let clickCount = 0;
+
+btn.addEventListener("click", () => {
+    clickCount++;
+    console.log("Clicked ${clickCount} times!", clickCount);
+    btn.textContent = "Clicked ${clickCount} times!"
+})
