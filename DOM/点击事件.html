@@ -1,10 +1,27 @@
-const btn = document.createElement("button")
-btn.textContent = "Click me!"
-document.body.appendChild(btn);
-let clickCount = 0;
+<!DOCTYPE html>
+<html lang="en">
 
-btn.addEventListener("click", () => {
-    clickCount++;
-    console.log("Clicked ${clickCount} times!", clickCount);
-    btn.textContent = "Clicked ${clickCount} times!"
-})
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">
+        Click Me!
+    </button>
+
+    <script>
+        let button = document.getElementById("btn");
+        let clickCount = 0;
+        button.addEventListener("click", function (event) {
+            clickCount++;
+            console.log(`You clicked me ${clickCount} times!`, event.target);
+            button.textContent = `Clicked ${clickCount} times!`;
+        });     
+
+    </script>
+</body>
+
+</html>
