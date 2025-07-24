@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .highlight {
+            color: red;
+            font-size: 15px;
+            background-color: yellow;
+        }
+    </style>
+    <div id="Box1">
+        臣是嘉靖二十一年的进士，是天子门生，要说恩师陛下就是臣的恩师！二十四年前臣从翰林院任检点，之后升侍读，升巡抚，升户部尚书，一直到两月前升列台阁，每一步都是陛下的拔擢，要说靠山，陛下才是臣的靠山。要说同党，臣也只是陛下的臣党！君不密则失臣，
+        陛下适才所言，非君论臣之道。臣恳请陛下收回！</div>
+    <script>
+        let box1 = document.getElementById("Box1");
+        box1.classList.add("highlight");
+        box1.classList.remove("highlight");
+        box1.classList.toggle("highlight");
+    </script>
+</body>
+
+</html>

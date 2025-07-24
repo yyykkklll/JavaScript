@@ -8,13 +8,30 @@
 </head>
 
 <body>
-    <div class="myDiv">hello world</div>
-    <div class="myDiv">hello china</div>
+    <!-- <div id="Div1">old content</div>
+    <div id="Div2">old content</div> -->
+    <img src="paper1.png" alt="paper1" id="paper1">
+    <style>
+        #paper1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
     <script>
-        const div = document.getElementsByClassName("myDiv");
-        div[0].innerHTML = "<strong>hello world@@@@@@@</strong>";
-        // div.style.color = "red";
+        // let div1 = document.getElementById("Div1");
+        // let div2 = document.getElementById("Div2");
+        // div1.innerHTML = "<strong>new content---</strong>";
+
+        // div2.textContent = "new content";
+        let img = document.getElementById("paper1");
+        console.log(img.getAttribute("src"));
+        img.setAttribute("src", "paper2.png");
+        img.setAttribute("alt", "paper2");
+        console.log(img.getAttribute("src"));
+        console.log(img.getAttribute("alt"));
     </script>
+
 </body>
 
 </html>
