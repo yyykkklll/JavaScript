@@ -17,11 +17,3 @@ asyncTask().then((result) => {
 }).catch((err) => {
     console.log(err);
 })
-
-
-// function randomFixed(n) {
-//     const factor = 10 ** n;
-//     return Math.round(Math.random() * factor) / factor;
-// }
-//
-// console.log(randomFixed(2)); // 0.123（示例）

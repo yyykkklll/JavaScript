@@ -9,14 +9,14 @@
 <script>
     let input = document.createElement("input");
     input.type = "text";
-    input.placeholder = " input something...";
+    input.placeholder = " input something";
     document.body.appendChild(input);
-
     let output = document.createElement("p");
     document.body.appendChild(output);
 
     input.addEventListener("input", (event) => {
-        output.textContent = `You typed ${event.target.value}!`;
+        output.textContent = event.target.value;
+        console.log(output.textContent);
     })
 </script>
 </body>
