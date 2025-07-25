@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let div = document.createElement("div");
+    div.style.height = "2000px";
+    div.textContent = "Scroll me!";
+    document.body.appendChild(div);
+
+    div.addEventListener("scroll", () => {
+        console.log("Scrolling!");
+    }, {passive: false});
+</script>
+</body>
+</html>

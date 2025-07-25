@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="outer">
+    <button id="inner"> Click!</button>
+</div>
+<script>
+    let outerDiv = document.getElementById("outer");
+    let innerBtn = document.getElementById("inner");
+    outerDiv.style.width = "200px";
+    outerDiv.style.height = "200px";
+    outerDiv.style.background = "pink";
+    innerBtn.style.color = "green";
+
+    outerDiv.addEventListener("click", function () {
+        console.log("捕获:外部容器");
+    });
+    innerBtn.addEventListener("click", function () {
+        console.log("innerDiv is clicked!");
+    },false);
+</script>
+</body>
+</html>

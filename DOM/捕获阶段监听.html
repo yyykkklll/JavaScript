@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let parent = document.createElement("div");
+    parent.style.padding = '20px';
+    parent.style.backgroundColor = "pink";
+    let child = document.createElement("button");
+    child.textContent = "Hello";
+    parent.appendChild(child);
+    document.body.appendChild(parent);
+
+    parent.addEventListener("click", () => {
+        console.log("Parent clicked (capture phase)");
+    });
+    child.addEventListener("click", (event) => {
+        event.stopPropagation();
+        console.log('子元素被点击，没有冒泡！');
+    });
+</script>
+</body>
+</html>

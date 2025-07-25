@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = " input something...";
+    document.body.appendChild(input);
+
+    let output = document.createElement("p");
+    document.body.appendChild(output);
+
+    input.addEventListener("input", (event) => {
+        output.textContent = `You typed ${event.target.value}!`;
+    })
+</script>
+</body>
+</html>

@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <script>
-      let ul = document.createElement("ul");
-      document.body.appendChild(ul);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      for (let i = 0; i < 5; i++) {
-        let li = document.createElement("li");
-        li.textContent = `Item: ${i + 1}`;
-        ul.appendChild(li);
+<body>
+  <script>
+    let ul = document.createElement("ul");
+    document.body.appendChild(ul);
+
+    for (let i = 0; i < 5; i++) {
+      let li = document.createElement("li");
+      li.textContent = `Item: ${i + 1}`;
+      ul.appendChild(li);
+    }
+
+    // 在 ul 上监听所有 li 的点击事件
+    ul.addEventListener("click", function (event) {
+      if (event.target.tagName === "LI") {
+        alert(`你点击了: ${event.target.textContent}`);
+        event.target.textContent = "已被点击";
+        event.target.style.color = "red";
+        event.target.removeEventListener("click", arguments.callee);
       }
+    });
 
-      // 在 ul 上监听所有 li 的点击事件
-      ul.addEventListener("click", function (event) {
-        if (event.target.tagName === "LI") {
-          alert(`你点击了: ${event.target.textContent}`);
-          event.target.textContent = "已被点击";
-          event.target.style.color = "red";
-          event.target.removeEventListener("click", arguments.callee);
-        }
-      });
+    let newLI = document.createElement("li");
+    newLI.textContent = "新添加的";
+    ul.appendChild(newLI);
+  </script>
+</body>
 
-      let newLI = document.createElement("li");
-      newLI.textContent = "新添加的";
-      ul.appendChild(newLI);
-    </script>
-  </body>
 </html>
