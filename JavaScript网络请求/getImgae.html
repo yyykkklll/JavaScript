@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>加载远程图片</title>
+  </head>
+  <body>
+    <script>
+      async function getImage() {
+        try {
+          const response = await fetch(
+            "https://picsum.photos/500", // ✅ 使用可直接跨域访问的图片源
+            {
+              mode: "cors", // 明确声明 CORS 模式
+            }
+          );
+          const blob = await response.blob();
+          const img = document.createElement("img");
+          img.src = URL.createObjectURL(blob);
+          img.alt = "加载的图片";
+          img.style.maxWidth = "100%";
+          document.body.appendChild(img);
+        } catch (err) {
+          console.error("图片加载失败：", err);
+        }
+      }
+
+      getImage();
+    </script>
+  </body>
+</html>

@@ -8,24 +8,12 @@
 </head>
 
 <body>
-<!-- <button id="btn">Click!</button>
-<script>
-    let btn = document.getElementById("btn");
-    let handler = () => { alert("clicked!"); };
-    btn.addEventListener("click", handler);
-</script> -->
-<script>
-    function sayHello(callback) {
-        console.log("-----------------");
-        callback();
-    }
-
-    function callback() {
-        console.log("Hello, callback!");
-    }
-
-    sayHello(callback);
-</script>
+    <button id="btn">Click!</button>
+    <script>
+        let btn = document.getElementById("btn");
+        let handler = () => { alert("clicked!"); }; 
+        btn.addEventListener("click", handler);
+    </script>
 </body>
 
 </html>

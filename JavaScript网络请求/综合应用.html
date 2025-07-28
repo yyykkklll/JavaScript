@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function fetchData() {
+        try {
+          let [user, posts] = await Promise.all([
+            fetch("https://jsonplaceholder.typicode.com/users/1").then((res) =>
+              res.json()
+            ),
+            fetch("https://jsonplaceholder.typicode.com/posts?userId=1").then(
+              (res) => res.json()
+            ),
+          ]);
+          let container = document.createElement("div");
+          container.innerHTML = `<h2>用户${user.username}的帖子列表:</h2>`;
+          console.log("[posts]", posts);
+          posts.forEach((post) => {
+            let postP = document.createElement("p");
+            postP.innerHTML = post.title;
+            container.appendChild(postP);
+          });
+          document.body.appendChild(container);
+        } catch (error) {
+          console.log("Error fetching data:", error);
+        }
+      }
+      fetchData();
+    </script>
+  </body>
+</html>

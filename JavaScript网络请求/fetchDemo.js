@@ -1,4 +1,12 @@
-fetch("https://jsonplaceholder.typicode.com/users/1")
-    .then(response => response.json()) // 解析为JSON
-    .then(data => console.log(data.name)) // 打印用户姓名
-    .catch(error => console.error("请求失败：", error));
+fetch("http://httpbin.org/get")
+    .then(response => response.json())
+    .then(data => {
+        if (data && data.headers) {
+            console.log(data.headers);
+        } else {
+            console.log("返回数据格式不符合预期", data);
+        }
+    })
+    .catch(error => console.error("请求失败:", error));
+
+

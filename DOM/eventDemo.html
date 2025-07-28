@@ -3,22 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Title</title>
 </head>
 
 <body>
-    <div id="container">
-        <button id="btn">按钮</button>
+    <div id="Div">
+        <button id="btn">点击</button>
     </div>
+
     <script>
-        document.getElementById("btn").addEventListener("click", function (event) {
-            if (event.target.id === "btn") {
-                console.log("按钮被点击了");
+        document.getElementById("btn").addEventListener("click", (event) => {
+            if (event.target.id === 'btn') {
+                console.log("按钮被点击");
             } else {
-                console.log("容器被点击了，但不是按钮");
+                console.log("DIV被点击");
             }
-        });
+        })
     </script>
 </body>
 
